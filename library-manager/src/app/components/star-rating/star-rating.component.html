@@ -1,0 +1,13 @@
+<div class="star-rating">
+    <!-- Boucle pour afficher 5 étoiles -->
+    <span
+      *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+      (click)="selectRating(star)"
+      (mouseenter)="hoverRating(star)"
+      (mouseleave)="resetHover()"
+      [class.filled]="star <= (hoveredRating || currentRating)"
+      class="star"
+    >
+      &#9733; <!-- Icône d'étoile -->
+    </span>
+  </div>

@@ -1,0 +1,50 @@
+<ng-container *ngTemplateOutlet="loaded ? load : loading"></ng-container>
+<ng-template #loading>
+    <app-loading-page></app-loading-page>
+</ng-template>
+
+<ng-template #load>
+    <div class="container mt-5">
+        <div class="d-flex">
+            <!-- Colonne pour la couverture du livre et les informations -->
+            <div class="flex-grow-1">
+                <div class="row">
+                    <!-- Colonne pour la couverture du livre -->
+                    <div class="col-md-4">
+                        <img [src]="book.coverLink.cover" class="img-fluid rounded" alt="Couverture du livre">
+                    </div>
+                    <!-- Colonne pour les informations du livre -->
+                    <div class="col-md-8">
+                        <h1>{{book.title}}</h1>
+                        <p class="lead">Auteur: {{book.authors}}</p>
+                        <p>Date de publication: {{book.publishYear}}</p>
+                        <p>Nombre de pages: {{book.nbPage}}</p>
+                        <h3>Résumé</h3>
+                        <p>{{book.description}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloc à droite -->
+            <div class="col-md-3 p-4 bg-white border-start" *ngIf="isConnected ">
+                <div class="card">
+                    <!-- Icônes en haut -->
+                    <div class="card-header text-center mb-4">
+                        <app-icon-button (buttonClick)="onStateChange($event)" svgPath="Icons/book-closed.svg" currentColor="orange" iconId="finish" [isSelected]="currentState==='finish'"></app-icon-button>
+                        <app-icon-button (buttonClick)="onStateChange($event)" svgPath="Icons/book-opened.svg" currentColor="blue" iconId="reading" [isSelected]="currentState==='reading'"></app-icon-button>
+                        <app-icon-button (buttonClick)="onStateChange($event)" svgPath="Icons/clock.svg" currentColor="blue" iconId="onList" [isSelected]="currentState==='onList'"></app-icon-button>
+                    </div>
+                    <div class="text-center">
+                        <h5 class="mb-3">Notez ce contenu :</h5>
+                        <app-star-rating (ratingSelected)="onRatingSelected($event)"
+                            [currentRating]="rating"></app-star-rating>
+                    </div>
+                </div>
+
+
+                <!-- Système de notation en bas -->
+
+            </div>
+        </div>
+    </div>
+</ng-template>

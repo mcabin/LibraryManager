@@ -1,0 +1,37 @@
+<div class="bg-light d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4" style="width: 400px;">
+    <h2 class="text-center mb-4">Connexion</h2>
+    <form>
+      <!-- Nom d'utilisateur -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Nom d'utilisateur</label>
+        <input type="text" class="form-control" [class.is-invalid]="usernameInput.hasError" id="username" placeholder="Entrez votre nom d'utilisateur" required
+          [(ngModel)]="usernameInput.content" name="username">
+        <div class="invalid-feedback">
+          {{usernameInput.errorMessage}}
+        </div>
+      </div>
+
+      <!-- Mot de passe -->
+      <div class="mb-3 ">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" [class.is-invalid]="passwordInput.hasError" id="password"
+          placeholder="Entrez votre mot de passe" required [(ngModel)]="passwordInput.content" name="password">
+        <div class="invalid-feedback">
+          {{passwordInput.errorMessage}}
+        </div>
+      </div>
+
+      <!-- Bouton de connexion -->
+      <div class="d-grid mb-3">
+        <button type="submit" (click)="login()" class="btn btn-primary">Se connecter</button>
+      </div>
+    </form>
+
+    <!-- Lien pour s'inscrire -->
+    <div class="text-center">
+      <p class="mb-0">Pas encore inscrit ?</p>
+      <a href="#" class="btn btn-link" onclick="navigateToSignup()">Créer un compte</a>
+    </div>
+  </div>
+</div>

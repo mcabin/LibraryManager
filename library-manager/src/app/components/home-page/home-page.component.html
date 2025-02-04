@@ -1,0 +1,33 @@
+<!-- Section principale -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Recherche de livres -->
+            <div class="text-center mb-5">
+                <h1 class="display-4">Rechercher un livre</h1>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <select class="form-select " [(ngModel)]="searchType" id="searchType" aria-label="Type de recherche">
+                        <option ngValue="title" selected>Titre</option>
+                        <option ngValue="author">Auteur</option>
+                    </select>
+                </div>
+                
+                <input type="text" class="form-control " placeholder="Titre, auteur, genre..."
+                    aria-label="Recherche de livre" [(ngModel)]="searchInput">
+                <button class="btn btn-dark" type="button" (click)="searchBook()">Rechercher</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5" *ngIf="!isConnected">
+        <div class="col-md-4 text-center">
+            <p class="text-muted">Commencer votre bibliothéque</p>
+            <button class="btn btn-dark" type="button" onclick="">
+                Créer un compte
+            </button>
+        </div>
+    </div>
+</div>
+

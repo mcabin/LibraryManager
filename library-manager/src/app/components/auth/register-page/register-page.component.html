@@ -1,0 +1,57 @@
+<div class ="bg-light d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="width: 400px;">
+      <h2 class="text-center mb-4">Inscription</h2>
+      <form>
+        <!-- Nom d'utilisateur -->
+        <div class="mb-3">
+          <label for="username" class="form-label">Nom d'utilisateur</label>
+          <input type="text" class="form-control" [class.is-invalid]="usernameInput.hasError" id="username" placeholder="Entrez votre nom d'utilisateur" required
+            [(ngModel)]="usernameInput.content" name="username">
+            <div class="invalid-feedback">
+                {{usernameInput.errorMessage}}
+              </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Adresse email</label>
+            <input type="text" class="form-control" [class.is-invalid]="emailInput.hasError" id="username" placeholder="Entrez votre adresse email" required
+              [(ngModel)]="emailInput.content" name="email">
+              <div class="invalid-feedback">
+                {{emailInput.errorMessage}}
+              </div>
+          </div>
+        <!-- Mot de passe -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" [class.is-invalid]="passwordInput.hasError" id="password" placeholder="Entrez votre mot de passe" required
+            [(ngModel)]="passwordInput.content" name="password">
+            <div class="invalid-feedback">
+                {{passwordInput.errorMessage}}
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Confirmation du mot de passe</label>
+            <input type="password" class="form-control" [class.is-invalid]="confirmPasswordInput.hasError" id="password" placeholder="Entrez la confirmation du mot de passe" required
+              [(ngModel)]="confirmPasswordInput.content" name="confPassword">
+              <div class="invalid-feedback">
+                {{confirmPasswordInput.errorMessage}}
+            </div>
+        </div>
+  
+        <!-- Bouton de connexion -->
+        <div class="d-grid mb-3">
+          <button type="submit" class="btn btn-primary" (click)="register()">S'inscrire</button>
+        </div>
+      </form>
+  
+      <!-- Lien pour s'inscrire -->
+      <div class="text-center">
+        <p class="mb-0">Pas encore inscrit ?</p>
+        <a href="#" class="btn btn-link" onclick="navigateToLogin()">Se connecter</a>
+      </div>
+      <div *ngIf="true" class="text-center invalid-feedback">
+        <p class="mb-0">Utilisateur ou mot de passe incorrecte</p>
+      </div>
+    </div>
+  </div> 

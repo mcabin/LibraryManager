@@ -1,0 +1,22 @@
+.star-rating {
+    display: inline-block;
+    font-size: 0; /* Supprime l'espace entre les étoiles */
+  }
+  
+  .star {
+    font-size: 30px; /* Taille des étoiles */
+    color: #ccc; /* Couleur des étoiles non sélectionnées */
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s; /* Animation de couleur */
+  }
+  
+  .star.filled {
+    color: #ffcc00; /* Couleur des étoiles sélectionnées */
+  }
+  
+  .note {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }

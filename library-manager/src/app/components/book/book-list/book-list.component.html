@@ -1,0 +1,40 @@
+<ng-container *ngTemplateOutlet="isLoaded ? load : loading"></ng-container>
+<ng-template #loading>
+    <app-loading-page></app-loading-page>
+</ng-template>
+
+<ng-template #load>
+
+    <div class="container center mt-3">
+        <div class="flex-wrap d-flex justify-content-center gap-4">
+            <div [ngStyle]="{'width':pageSize%3==0 ?'31%':'47%'}"
+                *ngFor="let currentBook of paginatedBooks; let i=index">
+                <app-book-card [book]="currentBook"></app-book-card>
+            </div>
+        </div>
+        <div class="mt-4 d-flex justify-content-center">
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item" [class.disabled]="currentPage === 1">
+                        <button class="page-link" (click)="changePage(currentPage - 1)">
+                            Précédent
+                        </button>
+                    </li>
+
+                    <li class="page-item" *ngFor="let page of pages; let idx = index"
+                        [class.active]="currentPage === idx + 1">
+                        <button class="page-link" (click)="changePage(idx + 1)">
+                            {{ idx + 1 }}
+                        </button>
+                    </li>
+
+                    <li class="page-item" [class.disabled]="currentPage === nbPages">
+                        <button class="page-link" (click)="changePage(currentPage + 1)">
+                            Suivant
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</ng-template>

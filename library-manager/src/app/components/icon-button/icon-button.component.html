@@ -1,0 +1,8 @@
+<div class="checkbox"   [style.--current-color]="currentColor">
+    <label>
+      <span class="tile"  (click)="onClick()">
+        <span class="icon" [class.selected]="isSelected" [innerHTML]="svgContent"></span>
+        <span class="label">Sketch</span>
+      </span>
+    </label>
+  </div>

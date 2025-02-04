@@ -1,0 +1,13 @@
+<div [routerLink]="['/book',book.apiId]" routerLinkActive="router-link-active"  class="card mb-3" style="width: 25rem; height: 10rem; max-width: 100%;">
+  <div class="row g-0 h-100">
+    <div class="col-md-4 h-100 w-25" >
+      <img src="{{book.coverLink.smallCover}}" class="img-fluid rounded-start" style="height: 100%;">
+    </div>
+    <div class="col-md-8 w-75 h-100 ">
+      <div class="card-body flex-column h-100">
+        <h5 class="card-title text-wrap text-truncate overflow-auto mb-4" style="max-height: 4.5em;">{{book.title}}</h5>
+        <p class="card-subtitle text-truncate">{{book.authors}}</p>
+      </div>
+    </div>
+  </div>
+</div>
