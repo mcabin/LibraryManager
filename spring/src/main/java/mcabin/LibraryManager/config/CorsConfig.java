@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class CorsConfig implements WebMvcConfigurer{
-    private final String angularServAdress="http://localhost:4200";
+    private final String angularServAdress="http://www.nathanael-alves.fr/";
     @Bean
      public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
