@@ -1,0 +1,16 @@
+# Use root/example as user/password credentials
+services:
+
+  db:
+    image: mariadb:11.5
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: black
+    ports:
+      - 3307:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
