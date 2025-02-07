@@ -1,4 +1,4 @@
-package mcabin.Library_Manager;
+package mcabin.LibraryManager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
